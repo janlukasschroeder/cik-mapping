@@ -61,7 +61,9 @@ const sanitiseCik = cik => {
 const findMappings = (key, value) => {
   console.log(key, value);
   const regex = RegExp(value, 'ig');
-  return store.mappings.filter(mapping => regex.test(mapping[key]));
+  const result = store.mappings.filter(mapping => regex.test(mapping[key]));
+  console.log(result);
+  return result;
 };
 
 module.exports.getByCik = ({ cik }) => {
