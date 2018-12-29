@@ -76,3 +76,8 @@ module.exports.getByName = ({ name }) => {
   return findMappings('name', name);
 };
 module.exports.init = loadCsvIntoMemory;
+
+module.exports.startUpdateScheduler = () => {
+  console.log('Starting CSV Update Scheduler');
+  setInterval(loadCsvIntoMemory, config.mapper.updateInterval);
+};

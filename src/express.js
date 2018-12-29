@@ -2,6 +2,7 @@ const app = require('express')();
 const http = require('http').createServer(app);
 const config = require('../config');
 const mapper = require('./mapper');
+const utils = require('./utils');
 
 app.get('/cik/:cik', (req, res) => {
   const result = mapper.getByCik(req.params);
@@ -18,11 +19,20 @@ app.get('/name/:name', (req, res) => {
   res.json(result);
 });
 
+app.get('/update', (req, res) => {
+  res.json({ pong: true });
+});
+
+app.get('/ping', (req, res) => {
+  res.json({ pong: true });
+});
+
 const start = () => {
   mapper.init().then(() => {
     http.listen(config.express.port, () => {
       console.log(`Server listening on *:${config.express.port}`);
-      // h.keepWorkerAlive('https://sec-edgar-scanner-client.herokuapp.com');
+      utils.keepDynoAlive();
+      mapper.startUpdateScheduler();
     });
   });
 };
