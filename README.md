@@ -10,6 +10,7 @@
 Download CSV once every day
 
 ## Mapping
+
 In: CIK
 Out: ticker, name, exchange
 
@@ -18,3 +19,9 @@ Out: CIK, name, exchange
 
 In: name
 Out: CIK, ticker, exchange
+
+# Heroku
+
+```bash
+heroku logs --tail -a mapping-api
+```
