@@ -4,6 +4,16 @@ const config = require('../config');
 const mapper = require('./mapper');
 const utils = require('./utils');
 
+app.get('/', (req, res) => {
+  res.json({
+    endpoints: [
+      { GET: '/cik/:cik' },
+      { GET: '/name/:name' },
+      { GET: '/ticker/:ticker' }
+    ]
+  });
+});
+
 app.get('/cik/:cik', (req, res) => {
   const result = mapper.getByCik(req.params);
   res.json(result);
@@ -17,10 +27,6 @@ app.get('/ticker/:ticker', (req, res) => {
 app.get('/name/:name', (req, res) => {
   const result = mapper.getByName(req.params);
   res.json(result);
-});
-
-app.get('/update', (req, res) => {
-  res.json({ pong: true });
 });
 
 app.get('/ping', (req, res) => {
