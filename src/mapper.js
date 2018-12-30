@@ -37,6 +37,7 @@ const sanitiseRow = row => {
     ticker: row.Ticker,
     name: row.Name,
     sic: row.SIC,
+    exchange: row.Exchange,
     // business: row.Business,
     // incorporated: row.Incorporated,
     irs: row.IRS
@@ -74,6 +75,9 @@ module.exports.getByTicker = ({ ticker }) => {
 };
 module.exports.getByName = ({ name }) => {
   return findMappings('name', name);
+};
+module.exports.getByExchange = ({ exchange }) => {
+  return findMappings('exchange', exchange);
 };
 module.exports.init = loadCsvIntoMemory;
 

@@ -29,6 +29,11 @@ app.get('/name/:name', (req, res) => {
   res.json(result);
 });
 
+app.get('/exchange/:exchange', (req, res) => {
+  const result = mapper.getByExchange(req.params);
+  res.json(result);
+});
+
 app.get('/ping', (req, res) => {
   res.json({ pong: true });
 });
