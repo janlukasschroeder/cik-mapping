@@ -81,6 +81,12 @@ module.exports.getByName = ({ name }) => {
 module.exports.getByExchange = ({ exchange }) => {
   return findMappings('exchange', exchange);
 };
+module.exports.getBySic = ({ sic }) => {
+  return findMappings('sic', sic);
+};
+module.exports.getByIrs = ({ irs }) => {
+  return findMappings('irs', irs);
+};
 module.exports.init = loadCsvIntoMemory;
 
 module.exports.startUpdateScheduler = () => {

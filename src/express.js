@@ -9,7 +9,10 @@ app.get('/', (req, res) => {
     endpoints: [
       { GET: '/cik/:cik' },
       { GET: '/name/:name' },
-      { GET: '/ticker/:ticker' }
+      { GET: '/ticker/:ticker' },
+      { GET: '/exchange/:exchange' },
+      { GET: '/sic/:sic' },
+      { GET: '/irs/:irs' }
     ]
   });
 });
@@ -31,6 +34,16 @@ app.get('/name/:name', (req, res) => {
 
 app.get('/exchange/:exchange', (req, res) => {
   const result = mapper.getByExchange(req.params);
+  res.json(result);
+});
+
+app.get('/sic/:sic', (req, res) => {
+  const result = mapper.getBySic(req.params);
+  res.json(result);
+});
+
+app.get('/irs/:irs', (req, res) => {
+  const result = mapper.getByIrs(req.params);
   res.json(result);
 });
 

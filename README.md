@@ -9,6 +9,9 @@ GET:
 - `/cik/:cik`
 - `/ticker/:ticker`
 - `/name/:name`
+- `/exchange/:exchange`
+- `/sic/:sic`
+- `/irs/:irs`
 
 Uses regular expressions. Returns an array.
 
