@@ -7,6 +7,8 @@ const loadCsvIntoMemory = () => {
   console.log('Start loading CSV into memory');
   const options = { delimiter: '|' };
 
+  store.mappings.length = 0; // empty array
+
   return new Promise((res, rej) => {
     csv(options)
       .fromStream(request.get(config.linkToCsv))

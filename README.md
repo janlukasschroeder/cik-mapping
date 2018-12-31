@@ -102,6 +102,46 @@ GET `https://mapping-api.herokuapp.com/name/Tesla`
 
 Using `Tesla` or `TESLA MOTORS` returns the same result.
 
+## List Companies by Exchange
+
+Request: GET https://mapping-api.herokuapp.com/exchange/:exchange
+
+Replace `:exchange` at the end of the URL with the exchange you are looking for, e.g. NASDAQ, or NYSE.
+
+You can use regular expressions to retrieve companies listed on different exchanges. For example, if you want to list all companies listed on NASDAQ and NYSE, you can use `https://mapping-api.herokuapp.com/exchange/NASDAQ|NYSE`
+
+Example: https://mapping-api.herokuapp.com/exchange/NASDAQ
+
+Response:
+
+    [
+        {
+            "cik": "0001099290",
+            "ticker": "AAC",
+            "name": "Sinocoking Coal & Coke Chemical Industries Inc",
+            "sic": "3312",
+            "exchange": "NASDAQ",
+            "irs": "593404233"
+        },
+        {
+            "cik": "0000006201",
+            "ticker": "AAL",
+            "name": "American Airlines Group Inc",
+            "sic": "4512",
+            "exchange": "NASDAQ",
+            "irs": "751825172"
+        },
+        {
+            "cik": "0000008177",
+            "ticker": "AAME",
+            "name": "Atlantic American Corp",
+            "sic": "6311",
+            "exchange": "NASDAQ",
+            "irs": "581027114"
+        },
+        // cut for brevity
+    ]
+
 # Data Integrity
 
 Update CSV every 12 hours
