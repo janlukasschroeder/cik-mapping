@@ -53,17 +53,24 @@ app.get('/ping', (req, res) => {
 });
 
 const start = async () => {
-  await Promise.all([mapper.init(), sic.init()]);
+  await sic.init();
+  await mapper.init();
 
-  // mapper.init().then(() => {
   http.listen(config.express.port, () => {
     console.log(`Server listening on *:${config.express.port}`);
     utils.keepDynoAlive();
     mapper.startUpdateScheduler();
     sic.startUpdateScheduler();
   });
+
+  // mapper.init().then(() => {
+  // http.listen(config.express.port, () => {
+  //   console.log(`Server listening on *:${config.express.port}`);
+  //   utils.keepDynoAlive();
+  //   mapper.startUpdateScheduler();
+  //   sic.startUpdateScheduler();
   // });
-  return -1;
+  // });
 };
 
 module.exports = {
