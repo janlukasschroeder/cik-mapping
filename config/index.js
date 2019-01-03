@@ -8,6 +8,7 @@ module.exports = {
     pingInterval: 60000 // 60 seconds
   },
   mapper: {
-    updateInterval: 60 * 1000 * 60 * 12 // 12 hours
+    updateInterval: 60 * 1000 * 60 * 12, // 12 hours
+    sicMappingsUrl: 'https://www.sec.gov/info/edgar/siccodes.htm'
   }
 };

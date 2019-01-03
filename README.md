@@ -31,6 +31,7 @@ Response:
     "ticker": "TESS",
     "name": "Tessco Technologies Inc",
     "sic": "5065",
+    "industryTitle": "WHOLESALE-ELECTRONIC PARTS & EQUIPMENT, NEC",
     "irs": "520729657"
   }
 ]
@@ -53,6 +54,7 @@ Response:
     "ticker": "TSLA",
     "name": "Tesla Motors Inc",
     "sic": "3711",
+    "industryTitle": "MOTOR VEHICLES & PASSENGER CAR BODIES",
     "irs": "912197729"
   },
   {
@@ -60,6 +62,7 @@ Response:
     "ticker": "WTSLA",
     "name": "Wet Seal Inc",
     "sic": "5621",
+    "industryTitle": "RETAIL-WOMEN'S CLOTHING STORES",
     "irs": "330415940"
   }
 ]
@@ -81,6 +84,7 @@ Response:
     "ticker": "TSLA",
     "name": "Tesla Motors Inc",
     "sic": "3711",
+    "industryTitle": "MOTOR VEHICLES & PASSENGER CAR BODIES",
     "irs": "912197729"
   }
 ]
@@ -98,6 +102,7 @@ GET `https://mapping-api.herokuapp.com/name/Tesla`
     "ticker": "TSLA",
     "name": "Tesla Motors Inc",
     "sic": "3711",
+    "industryTitle": "MOTOR VEHICLES & PASSENGER CAR BODIES",
     "irs": "912197729"
   }
 ]

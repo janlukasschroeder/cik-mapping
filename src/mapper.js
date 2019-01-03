@@ -1,9 +1,11 @@
 const config = require('../config');
 const request = require('request');
 const csv = require('csvtojson');
+const sic = require('./sic');
+
 const store = { mappings: [], updatedAt: null };
 
-const loadCsvIntoMemory = () => {
+const loadCsvIntoMemory = async () => {
   console.log('Start loading CSV into memory');
   const options = { delimiter: '|' };
 
@@ -39,6 +41,7 @@ const sanitiseRow = row => {
     ticker: row.Ticker,
     name: row.Name,
     sic: row.SIC,
+    industryTitle: sic.getIndustryTitle(row.SIC),
     exchange: row.Exchange,
     // business: row.Business,
     // incorporated: row.Incorporated,

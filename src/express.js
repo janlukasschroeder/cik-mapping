@@ -2,6 +2,7 @@ const app = require('express')();
 const http = require('http').createServer(app);
 const config = require('../config');
 const mapper = require('./mapper');
+const sic = require('./sic');
 const utils = require('./utils');
 
 app.get('/', (req, res) => {
@@ -51,14 +52,18 @@ app.get('/ping', (req, res) => {
   res.json({ pong: true });
 });
 
-const start = () => {
-  mapper.init().then(() => {
-    http.listen(config.express.port, () => {
-      console.log(`Server listening on *:${config.express.port}`);
-      utils.keepDynoAlive();
-      mapper.startUpdateScheduler();
-    });
+const start = async () => {
+  await Promise.all([mapper.init(), sic.init()]);
+
+  // mapper.init().then(() => {
+  http.listen(config.express.port, () => {
+    console.log(`Server listening on *:${config.express.port}`);
+    utils.keepDynoAlive();
+    mapper.startUpdateScheduler();
+    sic.startUpdateScheduler();
   });
+  // });
+  return -1;
 };
 
 module.exports = {
