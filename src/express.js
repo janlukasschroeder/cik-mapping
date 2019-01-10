@@ -58,7 +58,7 @@ const start = async () => {
 
   http.listen(config.express.port, () => {
     console.log(`Server listening on *:${config.express.port}`);
-    utils.keepDynoAlive();
+    // utils.keepDynoAlive();
     mapper.startUpdateScheduler();
     sic.startUpdateScheduler();
   });
