@@ -2,6 +2,18 @@
 
 https://mapping-api.herokuapp.com
 
+# Setup on your local machine
+
+You can run the mapping server on your local machine. Type the following
+commands in your command line:
+
+- `git clone https://github.com/janlukasschroeder/cik-mapping`
+- `cd cik-mapping`
+- `npm install` to install all dependencies
+- `node index.js` to start the server. Booting the server might take up
+  to 30 seconds because files are scrapped and downloaded from the Internet.
+- Open your browser and visit `http://localhost:3000`.
+
 # Endpoints
 
 GET:

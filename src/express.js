@@ -3,7 +3,6 @@ const http = require('http').createServer(app);
 const config = require('../config');
 const mapper = require('./mapper');
 const sic = require('./sic');
-const utils = require('./utils');
 
 app.get('/', (req, res) => {
   res.json({
@@ -58,19 +57,9 @@ const start = async () => {
 
   http.listen(config.express.port, () => {
     console.log(`Server listening on *:${config.express.port}`);
-    // utils.keepDynoAlive();
     mapper.startUpdateScheduler();
     sic.startUpdateScheduler();
   });
-
-  // mapper.init().then(() => {
-  // http.listen(config.express.port, () => {
-  //   console.log(`Server listening on *:${config.express.port}`);
-  //   utils.keepDynoAlive();
-  //   mapper.startUpdateScheduler();
-  //   sic.startUpdateScheduler();
-  // });
-  // });
 };
 
 module.exports = {

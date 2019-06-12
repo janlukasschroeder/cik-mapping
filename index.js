@@ -1,3 +1,3 @@
 const server = require('./src/express');
 
-server.start();
+server.start().catch(console.log);
